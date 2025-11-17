@@ -1,44 +1,44 @@
 public class Transaction {
-    private final TransactionType type;
-    private final String fromId;
-    private final String toId;
-    private final long amount;
+    private final TipoTransaccion tipo;
+    private final String origenId;
+    private final String destinoId;
+    private final long monto;
 
-    public Transaction(TransactionType type, String fromId, String toId, long amount) {
-        if (type == null)
+    public Transaction(TipoTransaccion tipo, String origenId, String destinoId, long amount) {
+        if (tipo == null)
             throw new IllegalArgumentException("Tipo de transacción inválido.");
-        if (amount <= 0)
+        if (monto <= 0)
             throw new IllegalArgumentException("Monto debe ser > 0.");
 
-        this.type = type;
-        this.fromId = fromId;
-        this.toId = toId;
-        this.amount = amount;
+        this.tipo = tipo;
+        this.origenId = origenId;
+        this.destinoId = destinoId;
+        this.monto = monto;
     }
 
-    public TransactionType getType() {
-        return type;
+    public TransactionType getTipo() {
+        return tipo;
     }
 
-    public String getFromId() {
-        return fromId;
+    public String getOrigenId() {
+        return origenId;
     }
 
-    public String getToId() {
-        return toId;
+    public String getDestinoId() {
+        return destinoId;
     }
 
-    public long getAmount() {
-        return amount;
+    public long getMonto() {
+        return monto;
     }
 
     @Override
     public String toString() {
         return "Transaction{" +
-                "type=" + type +
-                ", fromId='" + fromId + '\'' +
-                ", toId='" + toId + '\'' +
-                ", amount=" + amount +
+                "tipo=" + tipo +
+                ", origenId='" + origenId + '\'' +
+                ", destinoId='" + destinoId + '\'' +
+                ", monto=" + monto +
                 '}';
     }
 }
