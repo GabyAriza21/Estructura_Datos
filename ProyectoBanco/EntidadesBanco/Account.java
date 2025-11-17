@@ -40,6 +40,14 @@ public class Account {
         }
     }
 
+    public void setNombreTitular(String newNombre) {
+        if (newNombre == null) {
+            throw new IllegalArgumentException("Nombre del titular invalido");
+        }
+        this.nombreTitular = newNombre.trim();
+
+    }
+
     public void retiro(double monto) {
         if (monto <= 0) {
             throw new IllegalArgumentException("Monto invalido para retiro");
