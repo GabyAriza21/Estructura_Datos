@@ -14,17 +14,17 @@ public class ConsoleUi {
     }
 
     private void showMenu() {
-        System.out.println("1. Crear Account");
-        System.out.println("2. Actualizar nombre titular");
-        System.out.println("3. Cerrar Account");
-        System.out.println("4. Deposito");
-        System.out.println("5. Retiro");
-        System.out.println("6. Transferencia");
-        System.out.println("7. Buscar cuenta por Id");
-        System.out.println("8. Reporte por balance");
-        System.out.println("9. Reporte por nombre titular");
-        System.out.println("10. Ver historial");
-        System.out.println("0. Salir");
+        System.out.println("1. Create Account");
+        System.out.println("2. Update Holder Name");
+        System.out.println("3. Close Account");
+        System.out.println("4. Deposit");
+        System.out.println("5. Withdraw");
+        System.out.println("6. Transfer");
+        System.out.println("7. Search Account by ID");
+        System.out.println("8. Repor by balance");
+        System.out.println("9. Report by holder name");
+        System.out.println("10. View account history");
+        System.out.println("0. Exit");
 
     }
 
@@ -52,7 +52,7 @@ public class ConsoleUi {
                 break;
 
             case 0:
-                System.out.println("Saliendo...");
+                System.out.println("Exiting...");
                 break;
 
             default:    

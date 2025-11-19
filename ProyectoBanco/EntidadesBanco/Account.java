@@ -1,10 +1,10 @@
 public class Account {
     private String id;
-    private String nombreTitular;
+    private String holderName;
     private double balance;
-    private AccountStatus estado;
+    private AccountStatus status;
 
-    public Account(String id, String nombreTitular) {
+    public Account(String id, String holderName) {
         if (id == null) {
             throw new IllegalArgumentException("Id invalido");
         }
@@ -12,63 +12,63 @@ public class Account {
             throw new IllegalArgumentException("Nombre del titular invalido");
         }
         this.id = id.trim(); // .trim quita los esapcios
-        this.nombreTitular = nombreTitular.trim();
+        this.holderName = holderName.trim();
         this.balance = 0; // la cuenta inicia en 0
-        this.estado = EstadoCuenta.ACTIVE; // inicia con la cuenta activa
+        this.status = AccountStatus.ACTIVE; // inicia con la cuenta activa
     }
 
     public String getId() {
         return id;
     }
 
-    public String getNombreTitular() {
-        return nombreTitular;
+    public String getHolderName() {
+        return holderName;
     }
 
     public double getBalance() {
         return balance;
     }
 
-    public AccountStatus getEstado() {
-        return estado;
+    public AccountStatus getStatus() {
+        return status;
     }
 
-    public void deposito(double monto) {
-        if (monto <= 0) {
+    public void deposito(double amount) {
+        if (amount <= 0) {
             throw new IllegalArgumentException("Monto invalido para deposito");
         } 
-        this.balance += monto;
+        this.balance += amount;
     }
 
-    public void setNombreTitular(String newNombre) {
-        if (newNombre == null) {
+    public void setHolderName(String newName) {
+        if (newName == null) {
             throw new IllegalArgumentException("Nombre del titular invalido");
         }
-        this.nombreTitular = newNombre.trim();
+        this.holderName = newName.trim();
 
     }
 
-    public void retiro(double monto) {
-        if (monto <= 0) {
+    public void withdraw(double amount) {
+        if (amount <= 0) {
             throw new IllegalArgumentException("Monto invalido para retiro");
         }
-        if (monto > this.balance) {
+        if (amount > this.balance) {
             throw new IllegalArgumentException("Fondos insuficientes para retiro");
         }
-        this.balance -= monto;
+        this.balance -= amount;
     }
 
-    public void cerrar() {
-        this.estado = EstadoCuenta.CLOSED;
+    public void close() {
+        this.status = AccountStatus.CLOSED;
     }
 
     @Override
     public String toString() {
         return "Account{" +
-                "id='" + id + '\'' +
-                ", nombreTitular='" + nombreTitular + '\'' +
-                ", balance=" + balance +
-                ", estado=" + estado +
+                "Id='" + id + '\'' +
+                ", Holder='" + holderName + '\'' +
+                ", Balance=" + balance +
+                ", Status=" + status +
                 '}';
     }
 }

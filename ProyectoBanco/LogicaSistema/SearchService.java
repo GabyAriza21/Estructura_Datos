@@ -4,7 +4,8 @@ public class SearchService {
             return -1;
         }
 
-        int low = 0, high = accounts.size() - 1;
+        int low = 0;
+        int high = accounts.size() - 1;
 
         while (low <= high) {
             int mid = (low + high) / 2;
