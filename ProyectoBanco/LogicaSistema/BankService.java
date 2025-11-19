@@ -4,7 +4,7 @@ public class BankService {
     private List<Account> accounts; // contiene todas las cuentas bancarias del sistema
     private List<Transaction> transactions; // contiene todas las transacciones realizadas en el sistema
 
-    public BankSerive(){
+    public BankService(){
         this.accounts = new ArrayList<>(); // inicializa lista de cuentas vacia
         this.transactions = new ArrayList<>(); // inicializa lista de transacciones vacia 
     }
@@ -70,7 +70,7 @@ public class BankService {
     }
 
     // encontrar cuenta por ID
-    private Account encontrarAccountById(String id) {
+    private Account getAccountById(String id) {
         for (Account account : accounts) { // recorre la lista de cuentas, buscando por su id
             if (account.getId().equals(id)) {
                 return account; // si la encuentra, la retorna

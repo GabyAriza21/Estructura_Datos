@@ -2,7 +2,7 @@ public class Account {
     private String id;
     private String nombreTitular;
     private double balance;
-    private EstadoCuenta estado;
+    private AccountStatus estado;
 
     public Account(String id, String nombreTitular) {
         if (id == null) {
@@ -21,11 +21,11 @@ public class Account {
         return id;
     }
 
-    public String nombreTitular() {
+    public String getNombreTitular() {
         return nombreTitular;
     }
 
-    public double balance() {
+    public double getBalance() {
         return balance;
     }
 
@@ -36,8 +36,8 @@ public class Account {
     public void deposito(double monto) {
         if (monto <= 0) {
             throw new IllegalArgumentException("Monto invalido para deposito");
-            this.balance += monto;
-        }
+        } 
+        this.balance += monto;
     }
 
     public void setNombreTitular(String newNombre) {

@@ -3,11 +3,14 @@ public class SearchService {
         if (accounts == null || id == null) {
             return -1;
         }
+
         int low = 0, high = accounts.size() - 1;
+
         while (low <= high) {
             int mid = (low + high) / 2;
             String midId = accounts.get(mid).getId();
             int cmp = midId.compareTo(id);
+
             if (cmp == 0) {
                 return mid;
             }
@@ -16,8 +19,8 @@ public class SearchService {
             } else {
                 high = mid - 1;
             }
-            return -1;
         }
+        return -1;
     }
 
 }
