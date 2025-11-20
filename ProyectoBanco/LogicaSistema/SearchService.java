@@ -1,5 +1,5 @@
 public class SearchService {
-    public int binarySearcById(List<Account> accounts, String id) {
+    public int binarySearchById(List<Account> accounts, String id) {
         if (accounts == null || id == null) {
             return -1;
         }

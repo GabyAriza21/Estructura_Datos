@@ -33,7 +33,7 @@ public class BankService {
         if (account == null) {
             throw new IllegalArgumentException("Cuenta no encontrada."); // si no esta la cuenta, lanza exception
         }
-        account.setNombreTitular(newName); // si esta la cuenta, actualiza el nombre del titular
+        account.setHolderName(newName); // si esta la cuenta, actualiza el nombre del titular
     }
 
     // depositar
@@ -59,7 +59,7 @@ public class BankService {
             throw new IllegalStateException("No se puede retirar de una cuenta cerrada.");
         }
         account.withdraw(amount); // si esta la cuenta, realiza el retiro
-        transactions.add(new Transaction(TransactionType.WITHDRAW, id, null, amount));
+        transactions.add(new Transaction(TransactionType.WITHDRAW, id, null, (long)amount));
     }
 
     // transferir

@@ -11,8 +11,8 @@ public class Transaction {
             throw new IllegalArgumentException("Monto debe ser > 0.");
 
         this.type = type;
-        this.fromId = fromIdId;
-        this.toIdId = toId;
+        this.fromId = fromId;
+        this.toId = toId;
         this.amount = amount;
     }
 

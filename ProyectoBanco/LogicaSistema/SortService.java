@@ -1,5 +1,5 @@
 public class SortService {
-    public void mergeSortByBalance(List<Account> accounts) { // ordena cuentas por balance (ordenamiento de mezcla)
+    public void mergeSortByBalance(List<Account> accounts) { // ordena cuentas por balance
         if (accounts == null || accounts.size() <= 1) { // verifica si la lista que recibe es nula o tiene uno o ningun elemento
             return;
         }

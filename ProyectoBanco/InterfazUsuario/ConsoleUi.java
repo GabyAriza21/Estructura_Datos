@@ -14,6 +14,7 @@ public class ConsoleUi {
     }
 
     private void showMenu() {
+        System.out.println("=== Bank Final Proyect==="); 
         System.out.println("1. Create Account");
         System.out.println("2. Update Holder Name");
         System.out.println("3. Close Account");
@@ -25,30 +26,30 @@ public class ConsoleUi {
         System.out.println("9. Report by holder name");
         System.out.println("10. View account history");
         System.out.println("0. Exit");
-
+        System.out.print("===========================");
     }
 
     private void handleOption(int option){
         switch (option){
-            case 1:
+            case 1: createAccount(); 
                 break;
-            case 2:
+            case 2: updateHolderName();
                 break; 
-            case 3:
+            case 3: closeAccount();
                 break;
-            case 4:
+            case 4: deposit();
                 break;
-            case 5:
+            case 5: withdraw();
                 break;
-            case 6:
+            case 6: transfer();
                 break;
-            case 7:
+            case 7: 
                 break;
-            case 8:
+            case 8: 
                 break;
-            case 9:
+            case 9: 
                 break;
-            case 10:
+            case 10: 
                 break;
 
             case 0:
