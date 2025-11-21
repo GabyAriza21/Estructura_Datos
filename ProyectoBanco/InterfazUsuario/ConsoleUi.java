@@ -27,7 +27,7 @@ public class ConsoleUi {
         System.out.println("8. Repor by balance");
         System.out.println("9. Report by holder name");
         System.out.println("10. View account history");
-        Sistem.out.prinln("11. Undo last transaction");
+        System.out.prinln("11. Undo last transaction");
         System.out.println("0. Exit");
         System.out.println("===========================");
     }
@@ -116,7 +116,7 @@ public class ConsoleUi {
         String id = sc.nextLine();// lee el id ingresado por el usuario y la guarda en id
 
         System.out.println("Ingrese el monto a depositar:");// pide el monto a depositar
-        long amount = Long.parseLong(sc.nextLine());// lee el monto ingresado por el usuario
+        double amount = Double.parseDouble(sc.nextLine());// lee el monto ingresado por el usuario
 
         bank.deposit(id, amount);// llama al metodo deposit de BankService para depositar el dinero
         System.out.println("Deposito exitoso.");// mensaje de exito

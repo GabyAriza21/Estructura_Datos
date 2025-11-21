@@ -28,7 +28,7 @@ public class Transaction {
         return toId;
     }
 
-    public long getAmount() {
+    public double getAmount() {
         return amount; 
     }
 

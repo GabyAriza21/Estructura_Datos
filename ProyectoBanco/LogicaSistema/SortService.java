@@ -80,12 +80,6 @@ public class SortService {
 
     }
 
-    private void swap(List<Account> accounts, int i, int j){ //intercambia las cuentas en las posiciones i y j de la lista accounts
-        Account temp = accounts.get(i); // guarda la cuenta en la posicion i en una variable temporal
-        accounts.set(i, accounts.get(j)); // coloca la cuenta en la posicion j en la posicion i
-        accounts.set(j, temp);// coloca la cuenta guardada en temp en la posicion j (los elementos en i y j quedan intercambiados)
-    }
-
     public void quickSortById(List<Account> accounts){ // ordena cuentas por id
         if (accounts == null || accounts.size() <= 1) { //verifica si la lista:null o si tiene uno o ningun elemento
             return;
@@ -118,7 +112,7 @@ public class SortService {
         return i + 1;//retorna la nueva posicion del pivote
     }
 
-    private void swapById(List<Account> accounts, int i, int j) {//intercambia las cuentas en las posiciones i y j de la lista accounts
+    private void swap(List<Account> accounts, int i, int j){ //intercambia las cuentas en las posiciones i y j de la lista accounts
         Account temp = accounts.get(i);// guarda la cuenta en la posicion i en una variable temporal
         accounts.set(i, accounts.get(j));// coloca la cuenta en la posicion j en la posicion i
         accounts.set(j, temp);// coloca la cuenta guardada en temp en la posicion j (los elementos en i y j quedan intercambiados)

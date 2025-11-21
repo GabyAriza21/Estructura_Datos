@@ -34,7 +34,7 @@ public class Account {
         return status;
     }
 
-    public void deposit(long amount) { //permite ingresar dinero a la cuenta
+    public void deposit(double amount) { //permite ingresar dinero a la cuenta
         if (amount <= 0) { //verifica que el monto sea mayor a 0, si es 0 o negativo
             throw new IllegalArgumentException("Monto invalido para deposito");//lanza el mensaje
         } 

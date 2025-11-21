@@ -49,8 +49,9 @@ public class BankService {
             throw new IllegalStateException("No se puede depositar en una cuenta cerrada.");
         }
         account.deposit(amount); // si existe la cuenta, realiza el deposito
-        transactions.add(new Transaction(TransactionType.DEPOSIT, null, id, amount)); // registra la transaccion
-        historyStack.push(new Transaction(TransactionType.DEPOSIT, null, id, amount)); // registra la transaccion
+        Transaction tran = new Transaction(TransactionType.DEPOSIT, null, id, amount);
+        transactions.add(tran); // registra la transaccion
+        historyStack.push(tran); // registra la transaccion
     }
 
     // retirar
@@ -63,8 +64,9 @@ public class BankService {
             throw new IllegalStateException("No se puede retirar de una cuenta cerrada.");
         }
         account.withdraw(amount); // si esta la cuenta, realiza el retiro
-        transactions.add(new Transaction(TransactionType.WITHDRAW, id, null, amount));// registra la transaccion
-        historyStack.push(new Transaction(TransactionType.WITHDRAW, id, null, amount)); // registra la transaccion
+        Transaction tran = new Transaction(TransactionType.WITHDRAW, id, null, amount);
+        transactions.add(tran);// registra la transaccion
+        historyStack.push(tran); // registra la transaccion
     }
 
     // transferir
@@ -80,18 +82,20 @@ public class BankService {
         }
         originAccount.withdraw(amount);
         destAccount.deposit(amount);
-        transactions.add(new Transaction(TransactionType.TRANSFER, fromId, toId, amount)); // registra la transaccion
-        historyStack.push(new Transaction(TransactionType.TRANSFER, fromId, toId, amount)); // registra la transaccion
+        Transaction tran = new Transaction(TransactionType.TRANSFER, fromId, toId, amount);
+        transactions.add(tran); // registra la transaccion
+        historyStack.push(tran); // registra la transaccion
 
     }
 
     public void undoLastTransaction() {
         if (historyStack.isEmpty()) {
-            throw new IllegalArgumentException("No hay transacciones para deshacer."); // si la pila esta vacia, lanza
+            throw new IllegalStateException("No hay transacciones para deshacer."); // si la pila esta vacia, lanza
                                                                                        // exception
         }
         Transaction lastTransaction = historyStack.pop(); // obtiene la ultima transaccion de la pila
         transactions.remove(lastTransaction); // la elimina de la lista de transacciones
+        
         switch (lastTransaction.getType()) { // deshace la transaccion segun su tipo
             case DEPOSIT: {
                 Account depositAccount = getAccountById(lastTransaction.getToId());// busca la cuenta de destino
@@ -118,6 +122,7 @@ public class BankService {
                 }
                 break;
             }
+            
         }
         System.out.println("Ultima transaccion deshecha exitosamente.");
     }
