@@ -1,13 +1,14 @@
 import ProyectoBanco.EntidadesBanco.Account;
 import ProyectoBanco.EntidadesBanco.TransactionType;
 
+
 public class BankService {
     private List<Account> accounts; // contiene todas las cuentas bancarias del sistema
     private List<Transaction> transactions; // contiene todas las transacciones realizadas en el sistema
 
     public BankService(){
-        accounts = new ArrayList<>(); // inicializa lista de cuentas vacia
-        transactions = new ArrayList<>(); // inicializa lista de transacciones vacia 
+        this.accounts = new ArrayList<>(); // inicializa lista de cuentas vacia
+        this.transactions = new ArrayList<>(); // inicializa lista de transacciones vacia 
     }
 
     // crear cuenta
@@ -46,7 +47,7 @@ public class BankService {
             throw new IllegalStateException("No se puede depositar en una cuenta cerrada."); 
         }
         account.deposit(amount); // si existe la cuenta, realiza el deposito
-        transactions.add(new Transaction(TransactionType.DEPOSIT, null, id, (long) amount)); 
+        transactions.add(new Transaction(TransactionType.DEPOSIT, null, id, amount)); 
     }
 
     // retirar
@@ -59,7 +60,7 @@ public class BankService {
             throw new IllegalStateException("No se puede retirar de una cuenta cerrada.");
         }
         account.withdraw(amount); // si esta la cuenta, realiza el retiro
-        transactions.add(new Transaction(TransactionType.WITHDRAW, id, null, (long)amount));
+        transactions.add(new Transaction(TransactionType.WITHDRAW, id, null, amount));
     }
 
     // transferir
@@ -75,7 +76,7 @@ public class BankService {
         }
         originAccount.withdraw(amount);
         destAccount.deposit(amount);
-        transactions.add(new Transaction(TransactionType.TRANSFER, fromId, toId, (long) amount)); // registra la
+        transactions.add(new Transaction(TransactionType.TRANSFER, fromId, toId, amount)); // registra la
                                                                                                       // transaccion
     }
 

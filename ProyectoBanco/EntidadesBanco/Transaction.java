@@ -5,7 +5,7 @@ public class Transaction {
     private final long amount;
 
     public Transaction(TransactionType type, String fromId, String toId, long amount) {
-        if (tipo == null)
+        if (type == null)
             throw new IllegalArgumentException("Tipo de transacción inválido.");
         if (amount <= 0)
             throw new IllegalArgumentException("Monto debe ser > 0.");
