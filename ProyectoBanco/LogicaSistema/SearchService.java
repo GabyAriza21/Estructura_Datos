@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class SearchService {
     public int binarySearchById(List<Account> accounts, String id) {//implementa busqueda binaria para encontrar una cuenta por su id
         if (accounts == null || id == null) { //verifica si la lista es nula o el id es nulo

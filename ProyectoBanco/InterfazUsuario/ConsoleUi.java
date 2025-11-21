@@ -1,4 +1,5 @@
-import ProyectoBanco.LogicaSistema.BankService;
+import java.util.Scanner;
+import java.util.List; 
 
 public class ConsoleUi {
     private BankService bank = new BankService(); // transmite la logica de negocio del banco
@@ -27,7 +28,7 @@ public class ConsoleUi {
         System.out.println("8. Repor by balance");
         System.out.println("9. Report by holder name");
         System.out.println("10. View account history");
-        System.out.prinln("11. Undo last transaction");
+        System.out.println("11. Undo last transaction");
         System.out.println("0. Exit");
         System.out.println("===========================");
     }

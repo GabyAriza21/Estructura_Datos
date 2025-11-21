@@ -1,6 +1,6 @@
-import ProyectoBanco.EntidadesBanco.Account;
-import ProyectoBanco.EntidadesBanco.TransactionType;
-
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
 
 public class BankService {
     private List<Account> accounts; // contiene todas las cuentas bancarias del sistema
@@ -122,7 +122,7 @@ public class BankService {
                 }
                 break;
             }
-            
+
         }
         System.out.println("Ultima transaccion deshecha exitosamente.");
     }
