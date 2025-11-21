@@ -2,9 +2,9 @@ public class Transaction {
     private final TransactionType type; 
     private final String fromId;
     private final String toId;
-    private final long amount;
+    private final double amount;
 
-    public Transaction(TransactionType type, String fromId, String toId, long amount) {
+    public Transaction(TransactionType type, String fromId, String toId, double amount) {
         if (type == null)
             throw new IllegalArgumentException("Tipo de transacción inválido.");
         if (amount <= 0)

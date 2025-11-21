@@ -27,6 +27,7 @@ public class ConsoleUi {
         System.out.println("8. Repor by balance");
         System.out.println("9. Report by holder name");
         System.out.println("10. View account history");
+        Sistem.out.prinln("11. Undo last transaction");
         System.out.println("0. Exit");
         System.out.println("===========================");
     }
@@ -62,6 +63,9 @@ public class ConsoleUi {
                 break;
             case 10:
                 viewHistory();
+                break;
+            case 11:
+                undoLastTransaction();
                 break;
 
             case 0:
@@ -189,5 +193,10 @@ public class ConsoleUi {
         for (Transaction tran : history) {
             System.out.println(tran);// muestra cada transaccion
         }
-    }
+    } 
+
+    private void undoLastTransaction(){
+        bank.undoLastTransaction();//llama al metodo undoLastTransaction de BankService para deshacer la ultima transaccion
+        System.out.println("Ultima transaccion deshecha exitosamente.");//mensaje de exito
+    } 
 }
