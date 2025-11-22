@@ -93,8 +93,8 @@ public class ConsoleUi {
                 System.out.println("Opcion invalida. Intente de nuevo.");
                 break;
         }
-    } catch (Exception e) {
-        System.out.println("Error: " + e.getMessage());
+    } catch (Exception e) { //identifica el error
+        System.out.println("Error: " + e.getMessage()); //muestra el error especifico
     }
 }
 
