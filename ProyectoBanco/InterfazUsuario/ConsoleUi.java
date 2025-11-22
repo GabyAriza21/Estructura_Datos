@@ -2,19 +2,33 @@ import java.util.Scanner;
 import java.util.List; 
 
 public class ConsoleUi {
+
     private BankService bank = new BankService(); // transmite la logica de negocio del banco
     private SortService sorter = new SortService(); // transmite orden (saldo, nombre) de las listas de las cuentas
     private SearchService searcher = new SearchService();// transmite la busqueda binaria por Id
     private Scanner sc = new Scanner(System.in); // lee la entrada del usuario
 
+    /**
+     * 
+     */
     public void start() {
-        int option; // almacena la opcion seleccionada del usuario
+        int option = -1; // se asegura de que el bucle se ejecute al menos una vez
+
         do {
             showMenu(); // muestra las opciones disponibles
-            option = Integer.parseInt(sc.nextLine());// lee la opcion seleccionada por el usuario
+
+            try {
+                option = Integer.parseInt(sc.nextLine()); // lee la opcion seleccionada por el usuario y la convierte en numero entero
+            } catch (NumberFormatException e) { //si no lanza un numero lanza error
+                System.out.println("Ingresar numero valido: ");//pide un numero valido
+                continue;//reinicia la iteracion 
+            }
+
             handleOption(option);// guarda la opcion seleccionada y la procesa
-        } while (option != 0);
-    }
+
+        } while (option != 0);//si elige 0 termina la ejecucion del menu
+
+    } 
 
     private void showMenu() {
         System.out.println("=== Bank Final Proyect===");
@@ -34,6 +48,8 @@ public class ConsoleUi {
     }
 
     private void handleOption(int option) {
+        try{
+
         switch (option) {
             case 1:
                 createAccount();
@@ -77,7 +93,12 @@ public class ConsoleUi {
                 System.out.println("Opcion invalida. Intente de nuevo.");
                 break;
         }
+    } catch (Exception e) {
+        System.out.println("Error: " + e.getMessage());
     }
+}
+
+
 
     private void createAccount() {// crea la cuenta nueva
         System.out.println("Ingrese el ID de la cuenta:"); // pide el id de la cuenta a crear
@@ -199,5 +220,6 @@ public class ConsoleUi {
     private void undoLastTransaction(){
         bank.undoLastTransaction();//llama al metodo undoLastTransaction de BankService para deshacer la ultima transaccion
         System.out.println("Ultima transaccion deshecha exitosamente.");//mensaje de exito
-    } 
-}
+    }
+} 
+
